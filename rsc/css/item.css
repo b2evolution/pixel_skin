@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/**
+ * These are the styles that are used INSIDE of a blog item/post.
+ *
+ * The skin should include this into its design,
+ * but this should ALSO be included in the backoffice when viewing/editing posts.
+ */
+
+/* -------------------------------- b2evolution Stylesheet Imports --------------------------------- */
+@import url("../../../../rsc/css/item_base.css");	/*	Import default blog elements styles	*/
+/* -------------------------------- b2evolution Stylesheet Imports --------------------------------- */
+
+/*
+Theme Name: Pixeled
+Theme URI: http://samk.ca/freebies/free-wordpress-theme-pixeled/
+Description: Dark WP theme with 2-3 column layout, dropdown categories menu, multiple widget-ready placement and feedburner email form integrated, easy to customize. Created by <a href="http://samk.ca/">samk</a>. Enjoy!
+Author: sam
+Author URI: http://samk.ca/
+Version: 1.9.1
+Tags: black, blue, three-columns, two-columns, threaded-comments, fixed-width, theme-options, right-sidebar
+.
+Released under the <a href="http://www.opensource.org/licenses/gpl-license.php">GPL</a>.
+.
+*/
+
+p {
+  font-size: 9pt;
+  }
+
+a img {
+  border: none;
+  }
+
+blockquote {
+  background: #070707;
+  border: 1px solid #060606;
+  padding: 5px 15px;
+  margin: 10px 10px 5px 15px;
+  font-style: italic;
+  color: #fff;
+  }
+
+code {
+  color: #3366cc;
+  font-style: italic;
+  }
+
+strong {
+  font-size: 110%;
+  }
+
+
+/* Misc */
+
+.highlight {
+  color: #222;
+  font-weight: bold;
+  }
+
+.cleared {
+  margin: 0;
+  padding: 0;
+  clear: both;
+  }
+
+.alignleft {
+  float: left;
+  margin: 5px 10px 5px 0;
+  }
+.alignright {
+  float: right;
+  margin: 5px 0 5px 10px;
+  }
+.aligncenter,
+div.aligncenter {
+  margin: 10px auto;
+  text-align: center;
+  display: block;
+  }
+
+img.alignleft {
+  float: left;
+  margin: 5px 10px 5px 0;
+  }
+img.alignright {
+  float: right;
+  margin: 5px 0 5px 10px;
+  }
+img.aligncenter {
+  margin: 10px auto;
+  text-align: center;
+  display: block;
+  }
+
+.wp-caption {
+  border: 1px solid #ddd;
+  text-align: center;
+  background-color: #f3f3f3;
+
+  padding-top: 4px;
+
+  /* optional rounded corners for browsers that support it */
+
+  -moz-border-radius: 3px;
+
+  -khtml-border-radius: 3px;
+
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  }
+
+.wp-caption img {
+  margin: 0;
+  padding: 0;
+  border: none;
+  }
+
+.wp-caption p.wp-caption-text {
+  font-size: 11px;
+  line-height: 17px;
+  padding: 0 4px 5px;
+  margin: 0;
+  color: #111;
+  }
