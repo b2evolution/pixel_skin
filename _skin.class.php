@@ -27,7 +27,7 @@ class pixel_Skin extends Skin
 	*/
 	function get_default_name()
 	{
-		return 'pixel';
+		return 'Pixel Skin';
 	}
 
 	/**
