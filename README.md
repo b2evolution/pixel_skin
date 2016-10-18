@@ -5,7 +5,12 @@
 <img src="skinshot-03.png"><br/>
 <img src="skinshot-04.png"><br/>
 
-<h4>v1.1.</h4>	
+<h4>v1.1.1</h4>	
+<ul>
+	<li>Skin version fix</li>
+</ul>
+
+<h4>v1.1</h4>	
 <ul>
 	<li>Sitewide_header included for easier multi-blogging experience</li>
     <li>Visual improvements and adaptation to v6.6.+</li>
