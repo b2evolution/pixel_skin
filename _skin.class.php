@@ -30,13 +30,88 @@ class pixel_Skin extends Skin
 		return 'Pixel Skin';
 	}
 
+
 	/**
-	* Get default type for the skin.
-	*/
+	 * Get default type for the skin.
+	 */
 	function get_default_type()
 	{
-		return 'normal';
+		return 'rwd';
 	}
+
+
+	/**
+	 * What evoSkins API does has this skin been designed with?
+	 *
+	 * This determines where we get the fallback templates from (skins_fallback_v*)
+	 * (allows to use new markup in new b2evolution versions)
+	 */
+	function get_api_version()
+	{
+		return 6;
+	}
+
+
+	/**
+	 * Get supported collection kinds.
+	 *
+	 * This should be overloaded in skins.
+	 *
+	 * For each kind the answer could be:
+	 * - 'yes' : this skin does support that collection kind (the result will be was is expected)
+	 * - 'partial' : this skin is not a primary choice for this collection kind (but still produces an output that makes sense)
+	 * - 'maybe' : this skin has not been tested with this collection kind
+	 * - 'no' : this skin does not support that collection kind (the result would not be what is expected)
+	 * There may be more possible answers in the future...
+	 */
+	public function get_supported_coll_kinds()
+	{
+		$supported_kinds = array(
+				'main' => 'partial',
+				'std' => 'yes',		// Blog
+				'photo' => 'no',
+				'forum' => 'no',
+				'manual' => 'no',
+				'group' => 'maybe',  // Tracker
+				// Any kind that is not listed should be considered as "maybe" supported
+			);
+
+		return $supported_kinds;
+	}
+
+
+	/**
+	 * Get the container codes of the skin main containers
+	 *
+	 * This should NOT be protected. It should be used INSTEAD of file parsing.
+	 * File parsing should only be used if this function is not defined
+	 *
+	 * @return array
+	 */
+	function get_declared_containers()
+	{
+		// Note: second param below is the ORDER
+		return array(
+				'page_top'                  => array( NT_('Page Top'), 2 ),
+				'header'                    => array( NT_('Header'), 10 ),
+				'menu'                      => array( NT_('Menu'), 15 ),
+				'front_page_main_area'      => array( NT_('Front Page Main Area'), 40 ),
+				'item_single_header'        => array( NT_('Item Single Header'), 50 ),
+				'item_single'               => array( NT_('Item Single'), 51 ),
+				'item_page'                 => array( NT_('Item Page'), 55 ),
+				'contact_page_main_area'    => array( NT_('Contact Page Main Area'), 60 ),
+				'sidebar'                   => array( NT_('Sidebar'), 80 ),
+				'sidebar_2'                 => array( NT_('Sidebar 2'), 90 ),
+				'sidebar_w_1'               => array( NT_('Sidebar-w-1'), 91 ),
+				'sidebar_h_1'               => array( NT_('Sidebar-h 1'), 92 ),
+				'sidebar_h_2'               => array( NT_('Sidebar-h 2'), 93 ),
+				'sidebar_h_3'               => array( NT_('Sidebar-h 3'), 94 ),
+				'user_profile_left'         => array( NT_('User Profile - Left'), 110 ),
+				'user_profile_right'        => array( NT_('User Profile - Right'), 120 ),
+				'404_page'                  => array( NT_('404 Page'), 130 ),
+			);
+	}
+
 
 	/**
 	* Get definitions for editable params
@@ -82,14 +157,20 @@ class pixel_Skin extends Skin
 	*/
 	function display_init()
 	{
-		// call parent:
-		parent::display_init();
+		// Request some common features that the parent function (Skin::display_init()) knows how to provide:
+		parent::display_init( array(
+				'jquery',                  // Load jQuery
+				'font_awesome',            // Load Font Awesome (and use its icons as a priority over the Bootstrap glyphicons)
+				'bootstrap',               // Load Bootstrap (without 'bootstrap_theme_css')
+				'bootstrap_evo_css',       // Load the b2evo_base styles for Bootstrap (instead of the old b2evo_base styles)
+				'bootstrap_messages',      // Initialize $Messages Class to use Bootstrap styles
+				'style_css',               // Load the style.css file of the current skin
+				'colorbox',                // Load Colorbox (a lightweight Lightbox alternative + customizations for b2evo)
+				'bootstrap_init_tooltips', // Inline JS to init Bootstrap tooltips (E.g. on comment form for allowed file extensions)
+				'disp_auto',               // Automatically include additional CSS and/or JS required by certain disps (replace with 'disp_off' to disable this)
+			) );
 
 		// Add CSS:
-		require_css( 'basic_styles.css', 'blog' ); // the REAL basic styles
-		require_css( 'basic.css', 'blog' ); // Basic styles
-		require_css( 'blog_base.css', 'blog' ); // Default styles for the blog navigation
-		require_css( 'item_base.css', 'blog' ); // Default styles for the post CONTENT
 		require_css( 'rsc/css/item.css', 'relative' );
 		require_css( 'rsc/css/style.css', 'relative' );
 

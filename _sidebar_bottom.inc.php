@@ -15,15 +15,16 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 
 <div id="morefoot">
 
-	<div class="col1">
-		<ul>
 		<?php
-			// ------------------------- "Sidebar" CONTAINER EMBEDDED HERE --------------------------
+			// ------------------------- "Sidebar-h 1" CONTAINER EMBEDDED HERE --------------------------
 			// Display container contents:
-			skin_container( NT_('Sidebar-h 1'), array(
-					// The following (optional) params will be used as defaults for widgets included in this container:
+			widget_container( 'sidebar_h_1', array(
+					// The following params will be used as defaults for widgets included in this container:
+					'container_display_if_empty' => false, // If no widget, don't display container at all
+					'container_start' => '<div class="col1"><ul class="evo_container $wico_class$">',
+					'container_end'   => '</ul></div>',
 					// This will enclose each widget in a block:
-					'block_start' => '<li class="$wi_class$">',
+					'block_start' => '<li class="evo_widget $wi_class$">',
 					'block_end' => '</li>',
 					// This will enclose the title of each widget:
 					'block_title_start' => '<h3>',
@@ -41,20 +42,19 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 					'notes_start' => '<div class="notes">',
 					'notes_end' => '</div> <!-- end of class="notes -->',
 				) );
-			// ----------------------------- END OF "Sidebar" CONTAINER -----------------------------
+			// ----------------------------- END OF "Sidebar-h 1" CONTAINER -----------------------------
 		?>
-		</ul>
-	</div> <!-- end of class="col1" -->
 
-	<div class="col2">
-		<ul>
 		<?php
-			// ------------------------- "Sidebar" CONTAINER EMBEDDED HERE --------------------------
+			// ------------------------- "Sidebar-h 2" CONTAINER EMBEDDED HERE --------------------------
 			// Display container contents:
-			skin_container( NT_('Sidebar-h 2'), array(
-					// The following (optional) params will be used as defaults for widgets included in this container:
+			widget_container( 'sidebar_h_2', array(
+					// The following params will be used as defaults for widgets included in this container:
+					'container_display_if_empty' => false, // If no widget, don't display container at all
+					'container_start' => '<div class="col2"><ul class="evo_container $wico_class$">',
+					'container_end'   => '</ul></div>',
 					// This will enclose each widget in a block:
-					'block_start' => '<li class="$wi_class$">',
+					'block_start' => '<li class="evo_widget $wi_class$">',
 					'block_end' => '</li>',
 					// This will enclose the title of each widget:
 					'block_title_start' => '<h3>',
@@ -72,20 +72,19 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 					'notes_start' => '<div class="notes">',
 					'notes_end' => '</div> <!-- end of class="notes" -->',
 				) );
-			// ----------------------------- END OF "Sidebar" CONTAINER -----------------------------
+			// ----------------------------- END OF "Sidebar-h 2" CONTAINER -----------------------------
 		?>
-		</ul>
-	</div> <!-- end of class="col2" -->
 
-	<div class="col3">
-		<ul>
 		<?php
-			// ------------------------- "Sidebar" CONTAINER EMBEDDED HERE --------------------------
+			// ------------------------- "Sidebar-h 3" CONTAINER EMBEDDED HERE --------------------------
 			// Display container contents:
-			skin_container( NT_('Sidebar-h 3'), array(
-					// The following (optional) params will be used as defaults for widgets included in this container:
+			widget_container( 'sidebar_h_3', array(
+					// The following params will be used as defaults for widgets included in this container:
+					'container_display_if_empty' => false, // If no widget, don't display container at all
+					'container_start' => '<div class="col3"><ul class="evo_container $wico_class$">',
+					'container_end'   => '</ul></div>',
 					// This will enclose each widget in a block:
-					'block_start' => '<li class="$wi_class$">',
+					'block_start' => '<li class="evo_widget $wi_class$">',
 					'block_end' => '</li>',
 					// This will enclose the title of each widget:
 					'block_title_start' => '<h3>',
@@ -103,10 +102,8 @@ if( !defined('EVO_MAIN_INIT') ) die( 'Please, do not access this page directly.'
 					'notes_start' => '<div class="notes">',
 					'notes_end' => '</div> <!-- end of class="notes" -->',
 				) );
-			// ----------------------------- END OF "Sidebar" CONTAINER -----------------------------
+			// ----------------------------- END OF "Sidebar-h 3" CONTAINER -----------------------------
 		?>
-		</ul>
-	</div> <!-- end of class="col3" -->
 
 	<div class="cleared"></div>
 </div> <!-- end of id="morefoot" -->

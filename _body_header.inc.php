@@ -23,28 +23,32 @@ siteskin_include( '_site_body_header.inc.php' );
 <div id="wrapper">
 
 <div id="header">
-	<div id="logo">
+	
 		<?php
 			// ------------------------- "Header" CONTAINER EMBEDDED HERE --------------------------
 			// Display container and contents:
-			skin_container( NT_('Header'), array(
+			widget_container( 'header', array(
 					// The following params will be used as defaults for widgets included in this container:
-					'block_start' => '<span class="$wi_class$">',
-					'block_end' => '</span>',
+					'container_display_if_empty' => false, // If no widget, don't display container at all
+					'container_start' => '<div id="logo" class="evo_container $wico_class$">',
+					'container_end'   => '</div>',
+					'block_start' => '<div class="evo_widget $wi_class$">',
+					'block_end' => '</div>',
 					'block_title_start' => '<h1>',
 					'block_title_end' => '</h1>',
 				) );
 			// ----------------------------- END OF "Header" CONTAINER -----------------------------
 		?>
 
-	</div> <!-- end of id="logo" -->
-
-	<div id="pagetop">
 		<?php
+			// ------------------------- "Page Top" CONTAINER EMBEDDED HERE --------------------------
 			// Display container and contents:
-			skin_container( NT_('Page Top'), array(
+			widget_container( 'page_top', array(
 					// The following params will be used as defaults for widgets included in this container:
-					'block_start' => '<div class="$wi_class$">',
+					'container_display_if_empty' => false, // If no widget, don't display container at all
+					'container_start' => '<div id="pagetop" class="evo_container $wico_class$">',
+					'container_end'   => '</div>',
+					'block_start' => '<div class="evo_widget $wi_class$">',
 					'block_end' => '</div>',
 					'block_display_title' => false,
 					'list_start' => '<ul>',
@@ -52,9 +56,9 @@ siteskin_include( '_site_body_header.inc.php' );
 					'item_start' => '<li>',
 					'item_end' => '</li>',
 				) );
+			// ----------------------------- END OF "Page Top" CONTAINER -----------------------------
 		?>
 
-	</div> <!-- end of id="pagetop" -->
 </div> <!-- end of id="header" -->
 
 <div id="catnav">
@@ -62,24 +66,28 @@ siteskin_include( '_site_body_header.inc.php' );
 		<a href="<?php $Blog->disp( 'atom_url', 'raw' ) ?>"><img src="rsc/img/feed-trans.png" alt="Blog Name" width="65" height="24" /></a>
 
 	</div> <!-- end of id="topfeed" -->
-	<ul id="nav">
+
 		<?php
 			// ------------------------- "Menu" CONTAINER EMBEDDED HERE --------------------------
 			// Display container and contents:
-			skin_container( NT_('Menu'), array(
+			widget_container( 'menu', array(
 					// The following params will be used as defaults for widgets included in this container:
+					'container_display_if_empty' => false, // If no widget, don't display container at all
+					'container_start' => '<ul id="nav" class="evo_container $wico_class$">',
+					'container_end'   => '</ul>',
 					'block_start' => '',
 					'block_end' => '',
 					'block_display_title' => false,
 					'list_start' => '',
 					'list_end' => '',
-					'item_start' => '<li>',
+					'item_start' => '<li class="evo_widget $wi_class$">',
 					'item_end' => '</li>',
+					'item_selected_start' => '<li class="selected evo_widget $wi_class$">',
+					'item_selected_end'   => '</li>',
 				) );
 			// ----------------------------- END OF "Menu" CONTAINER -----------------------------
 		?>
 
-	</ul>
 </div> <!-- end of id="catnav" -->
 
 <div class="cleared"></div>
